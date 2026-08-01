@@ -568,29 +568,46 @@ html, body {
 .cover2-top-header {
   width: 100%;
   margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cover2-tagline-black {
   font-family: var(--font-fredoka);
-  font-size: 1.15rem;
+  font-size: clamp(0.8rem, 4vw, 1.15rem);
   font-weight: 700;
   color: var(--color-matcha);
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 .cover2-title-black {
   font-family: var(--font-caveat);
-  font-size: 3.8rem;
+  font-size: clamp(2.2rem, 9.5vw, 3.8rem);
   font-weight: 700;
   color: var(--color-matcha);
   line-height: 1.15;
   text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9);
-  margin-top: 5px;
+  margin-top: 2px;
   margin-bottom: 0;
   display: block;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.cover2-couple-names {
+  font-family: var(--font-caveat);
+  font-size: clamp(1.8rem, 7.5vw, 2.6rem);
+  color: var(--color-strawberry-dark);
+  margin-top: -5px;
+  font-weight: 700;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 /* Bottom Section: Small guest name without protective box */
@@ -605,16 +622,17 @@ html, body {
 
 .cover2-guest-label-black {
   font-family: var(--font-fredoka);
-  font-size: 0.8rem;
+  font-size: clamp(0.72rem, 3.2vw, 0.82rem);
   color: var(--color-matcha-dark);
   font-weight: 600;
   margin-bottom: 2px;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
 }
 
 .cover2-guest-name-black {
   font-family: var(--font-caveat);
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 6vw, 1.9rem);
   font-weight: 700;
   color: var(--color-matcha);
   margin-bottom: 18px;
@@ -623,6 +641,7 @@ html, body {
   border: none !important;
   padding: 0 !important;
   box-shadow: none !important;
+  white-space: nowrap;
 }
 
 .btn-tap-open {
@@ -851,26 +870,28 @@ html, body {
 
 .invited-tagline-clean {
   font-family: var(--font-fredoka);
-  font-size: 0.95rem;
+  font-size: clamp(0.72rem, 3.8vw, 0.95rem);
   font-weight: 600;
   color: var(--color-matcha);
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   text-align: center;
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
+  white-space: nowrap;
 }
 
 .slide1-couple-title {
   font-family: var(--font-caveat);
-  font-size: 3.4rem;
+  font-size: clamp(2.1rem, 9vw, 3.4rem);
   font-weight: 700;
   color: var(--color-matcha);
   text-align: center;
   line-height: 1.15;
   text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95);
-  margin-top: 5px;
+  margin-top: 2px;
   margin-bottom: 0;
+  white-space: nowrap;
 }
 
 .gold-amp {
@@ -1060,40 +1081,123 @@ html, body {
 }
 
 
-/* SECTION 2: COUPLE PROFILES */
-.quote-text {
-  font-family: var(--font-caveat);
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--color-matcha-dark);
-  line-height: 1.4;
-  margin: 12px auto 8px auto;
-  background: linear-gradient(135deg, rgba(214, 226, 209, 0.75) 0%, rgba(198, 214, 192, 0.85) 100%);
-  border-radius: 35px 8px 40px 12px;
-  padding: 14px 22px;
-  display: inline-block;
-  max-width: 340px;
-  box-shadow: 0 4px 15px rgba(107, 127, 98, 0.12);
+/* SECTION 2: AR-RUM DEDICATED SLIDE WITH FLOATING ANIMATED FRAME BG1.JPG */
+.sec-arrum {
+  background: transparent !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 18px !important;
 }
 
-.quote-src {
-  font-family: var(--font-fredoka);
-  font-size: 0.8rem;
-  color: var(--color-strawberry-dark);
-  font-weight: 600;
-  display: block;
-  margin-top: 4px;
+.arrum-frame-card {
+  position: relative;
+  width: 92%;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 36px 22px 30px 22px;
+  border-radius: 26px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('bg1.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 3.5px solid #ffffff;
+  outline: 3px solid var(--color-strawberry);
+  outline-offset: -2px;
+  box-shadow: 0 14px 35px rgba(107, 127, 98, 0.25), 0 6px 20px rgba(216, 133, 138, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: floatContinuous 4.5s ease-in-out infinite;
+  will-change: transform;
 }
+
+.arrum-bismillah {
+  font-family: serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-matcha-dark);
+  margin-bottom: 10px;
+  direction: rtl;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
+  animation: fadeInDown 1.2s ease-out;
+}
+
+.arrum-heart-icon {
+  font-size: 1.5rem;
+  color: var(--color-strawberry);
+  margin-bottom: 12px;
+  animation: heartbeat 1.5s infinite;
+}
+
+.arrum-quote-text {
+  font-family: var(--font-caveat);
+  font-size: clamp(1.25rem, 5.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-matcha-dark);
+  line-height: 1.5;
+  margin-bottom: 18px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
+  animation: fadeInUp 1.4s ease-out;
+}
+
+.arrum-quote-src {
+  font-family: var(--font-fredoka);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-strawberry-dark);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid var(--color-strawberry);
+  padding: 7px 22px;
+  border-radius: var(--radius-full);
+  animation: pulseBadge 2.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseBadge {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(216, 133, 138, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(216, 133, 138, 0.5);
+  }
+}
+
+/* SECTION 3: COUPLE PROFILES */
 
 .profile-card {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border: 1.5px solid var(--color-matcha-light) !important;
-  border-radius: var(--radius-lg) !important;
-  padding: 25px 20px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 15px 0 !important;
   text-align: center;
-  margin-bottom: 20px !important;
-  backdrop-filter: blur(8px) !important;
-  box-shadow: 0 8px 25px rgba(107, 127, 98, 0.15) !important;
+  margin-bottom: 15px !important;
 }
 
 /* Pink Sticker Cutout Outline Effect for Photos */
@@ -1185,18 +1289,19 @@ html, body {
 }
 
 .event-card {
-  background: rgba(255, 255, 255, 0.88) !important;
-  border: 1.5px solid var(--color-matcha-light) !important;
+  background: transparent !important;
+  border: none !important;
   border-radius: var(--radius-lg) !important;
-  padding: 25px 20px !important;
+  padding: 15px 10px !important;
   text-align: center;
   margin-bottom: 20px !important;
-  box-shadow: 0 8px 25px rgba(107, 127, 98, 0.12) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
 
 .highlight-card {
-  border: 2px solid var(--color-strawberry) !important;
-  box-shadow: 0 8px 25px rgba(216, 133, 138, 0.25) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .card-icon {
