@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Undangan Pernikahan S & C</title>
+  <meta name="description" content="Undangan Digital Pernikahan S & C. Kami mengundang Anda untuk mengarungi kebahagiaan bersama kami.">
+  
+  <!-- CDN Fonts: Brittany Signature CDN + Google Fonts (Caveat, Fredoka, Quicksand, Short Stack, etc.) -->
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/brittany-signature">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Fredoka:wght@400..700&family=Quicksand:wght@400..700&family=Short+Stack&family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Audio Element -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-acoustic-guitar-113271.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Audio Controller -->
+  <button id="musicToggleBtn" class="music-toggle-btn hidden" aria-label="Toggle Music">
+    <i class="fas fa-disc disk-icon spinning"></i>
+    <i class="fas fa-music music-note"></i>
+  </button>
+
+  <!-- Mobile Portrait App Frame Container -->
+  <div class="mobile-frame-wrapper">
+    <div class="mobile-container" id="appContainer">
+
+      <!-- ==========================================
+           CLEAN MINIMAL COVER 1
+           ========================================== -->
+      <section id="cover1" class="screen-cover cover-1 active">
+        <!-- Overlay Layer for contrast -->
+        <div class="cover-overlay dark-overlay"></div>
+
+        <div class="cover-1-content minimal-cover">
+          
+          <!-- Top Screen: ONLY Animated Handwriting Text "Undangan" -->
+          <div class="handwriting-header">
+            <svg class="handwriting-svg" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+              <text x="50%" y="90" text-anchor="middle" class="brittany-stroke-text">Undangan</text>
+            </svg>
+          </div>
+
+          <!-- Middle Screen: bg2.jpg Image directly (No Outer Frame Border) with Overlapping S & C Initials -->
+          <div class="clean-bg2-wrapper">
+            <img src="bg2.jpg" alt="Foto bg2 S & C" class="clean-bg2-img">
+            <div class="monogram-overlay">
+              <!-- Overlapping S & C Brittany Initials -->
+              <div class="overlapping-monogram">
+                <span class="initial-s">R</span>
+                <span class="initial-amp">&amp;</span>
+                <span class="initial-c">C</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Screen: ONLY Swipe Slider Button -->
+          <div class="swipe-container" id="swipeContainer">
+            <div class="swipe-track">
+              <span class="swipe-track-text">Geser ke kanan untuk membuka <i class="fas fa-angles-right"></i></span>
+              <div class="swipe-progress" id="swipeProgress"></div>
+              <div class="swipe-handle" id="swipeHandle">
+                <i class="fas fa-heart handle-icon"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ==========================================
+           COVER 2: SECOND COVER WITH SLIDESHOW
+           ========================================== -->
+      <section id="cover2" class="screen-cover cover-2">
+        <!-- Soft Crossfade Slideshow Background (bg11.jpg, bg10.jpg, bg8.jpg) -->
+        <div class="slideshow-bg-container">
+          <div class="slide-img slide-1"></div>
+          <div class="slide-img slide-2"></div>
+          <div class="slide-img slide-3"></div>
+        </div>
+
+        <div class="cover-2-content">
+            <!-- Top Screen: Matcha font header matching Canva -->
+            <div class="cover2-top-header">
+              <p class="cover2-tagline-black">THESE COUPLE ARE</p>
+              <h1 class="cover2-title-black brittany-font">Getting Married!</h1>
+              <p style="font-family: var(--font-caveat); font-size: 2.6rem; color: var(--color-strawberry-dark); margin-top: -5px; font-weight: 700;">Risna &amp; Cesar</p>
+            </div>
+
+          <!-- Bottom Screen: Small guest name without protective box + Ketuk untuk membuka button -->
+          <div class="cover2-bottom-wrapper">
+            <p class="cover2-guest-label-black">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <p class="cover2-guest-name-black" id="guestNameDisplay">Tamu Undangan Spesial</p>
+            
+            <button id="btnOpenInvitation" class="btn-tap-open">
+              <i class="fas fa-envelope-open"></i> Ketuk untuk membuka
+            </button>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ==========================================
+           MAIN INVITATION BODY (ISI UNDANGAN)
+           ========================================== -->
+      <main id="mainInvitation" class="main-invitation hidden">
+
+        <!-- Main Slideshow Background (bg3.jpg, bg4.jpg, bg5.jpg, bg6.jpg, bg7.jpg) -->
+        <div class="main-slideshow-container">
+          <div class="main-slide slide-bg3"></div>
+          <div class="main-slide slide-bg4"></div>
+          <div class="main-slide slide-bg5"></div>
+          <div class="main-slide slide-bg6"></div>
+          <div class="main-slide slide-bg7"></div>
+        </div>
+
+        <!-- SECTION 1: SLIDE 1 (bg12.jpg background, snap scroll) -->
+        <section id="secHome" class="invitation-section snap-slide sec-hero-slide1">
+          
+          <!-- TOP HEADER: Centered High-End Header -->
+          <div class="slide1-top-header">
+            <p class="invited-tagline-clean">You are invited to the wedding of</p>
+            <h1 class="slide1-couple-title brittany-font">Risna <span class="gold-amp">&amp;</span> Cesar</h1>
+          </div>
+
+          <!-- BOTTOM BAR: Sleek Glassmorphic Date & Countdown Card -->
+          <div class="slide1-bottom-bar">
+            <p class="slide1-event-date-clean"><i class="far fa-calendar-alt"></i> Sabtu, 22 Agustus 2026</p>
+            
+            <div class="countdown-boxes-clean">
+              <div class="time-box-clean">
+                <span id="days">00</span>
+                <label>HARI</label>
+              </div>
+              <div class="time-box-clean">
+                <span id="hours">00</span>
+                <label>JAM</label>
+              </div>
+              <div class="time-box-clean">
+                <span id="minutes">00</span>
+                <label>MENIT</label>
+              </div>
+              <div class="time-box-clean">
+                <span id="seconds">00</span>
+                <label>DETIK</label>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- SECTION 2: COUPLE DETAILS (SNAP SLIDE) -->
+        <section id="secCouple" class="invitation-section snap-slide sec-couple">
+          <div class="slide-content-wrapper">
+            <div class="section-header">
+              <h2 class="section-title brittany-font">Mempelai Pria &amp; Wanita</h2>
+              <p class="quote-text">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."</p>
+              <span class="quote-src">(QS. Ar-Rum: 21)</span>
+            </div>
+
+            <!-- Groom Profile -->
+            <div class="profile-card clean-transparent-card">
+              <div class="profile-avatar-frame">
+                <img src="bg2.jpg" alt="Cesar" class="profile-img">
+              </div>
+              <h3 class="person-name">Cesar, S.T.</h3>
+              <p class="parents-info">Putra Pertama dari Bapak Sastro &amp; Ibu Ratna</p>
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="ig-link"><i class="fab fa-instagram"></i> @cesar</a>
+            </div>
+
+            <div class="couple-heart-divider">
+              <i class="fas fa-heart"></i>
+            </div>
+
+            <!-- Bride Profile -->
+            <div class="profile-card clean-transparent-card">
+              <div class="profile-avatar-frame">
+                <img src="bg1.jpg" alt="Risna" class="profile-img">
+              </div>
+              <h3 class="person-name">Risna, S.Ked.</h3>
+              <p class="parents-info">Putri Kedua dari Bapak Cipto &amp; Ibu Maya</p>
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="ig-link"><i class="fab fa-instagram"></i> @risna</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: EVENT DETAILS (SNAP SLIDE) -->
+        <section id="secEvent" class="invitation-section snap-slide sec-event">
+          <div class="slide-content-wrapper">
+            <div class="section-header">
+              <h2 class="section-title brittany-font">Jadwal Acara</h2>
+              <p class="sub-header-text">Dengan Memohon Rahmat &amp; Ridho Allah SWT, Kami Mengharapkan Kehadiran Bapak/Ibu/Saudara/i Pada:</p>
+            </div>
+
+            <!-- Akad Card -->
+            <div class="event-card clean-transparent-card">
+              <div class="card-icon"><i class="fas fa-ring"></i></div>
+              <h3 class="event-type">Akad Nikah</h3>
+              <div class="event-date">
+                <span class="day-name">Sabtu</span>
+                <span class="day-num">22</span>
+                <span class="month-year">Agustus 2026</span>
+              </div>
+              <p class="event-time"><i class="far fa-clock"></i> Pukul 08.00 WIB - Selesai</p>
+              <p class="event-location"><i class="fas fa-location-dot"></i> <strong>Grand Ballroom Hotel Risnasar</strong><br>Jl. Merdeka Utama No. 88, Jakarta Selatan</p>
+            </div>
+
+            <!-- Resepsi Card -->
+            <div class="event-card clean-transparent-card">
+              <div class="card-icon"><i class="fas fa-glass-cheers"></i></div>
+              <h3 class="event-type">Resepsi Pernikahan</h3>
+              <div class="event-date">
+                <span class="day-name">Sabtu</span>
+                <span class="day-num">22</span>
+                <span class="month-year">Agustus 2026</span>
+              </div>
+              <p class="event-time"><i class="far fa-clock"></i> Pukul 11.00 - 15.00 WIB</p>
+              <p class="event-location"><i class="fas fa-location-dot"></i> <strong>Grand Ballroom Hotel Risnasar</strong><br>Jl. Merdeka Utama No. 88, Jakarta Selatan</p>
+              
+              <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-maps">
+                <i class="fas fa-map-marked-alt"></i> Buka Petunjuk Lokasi (Google Maps)
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 4: GALLERY -->
+        <section id="secGallery" class="invitation-section sec-gallery">
+          <div class="section-header">
+            <h2 class="section-title brittany-font">Galeri Bahagia</h2>
+            <p class="sub-header-text">Momen Indah Perjalanan Cinta Kami</p>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="gallery-item item-large">
+              <img src="bg2.jpg" alt="Foto Galeri 1" loading="lazy">
+            </div>
+            <div class="gallery-item">
+              <img src="bg1.jpg" alt="Foto Galeri 2" loading="lazy">
+            </div>
+            <div class="gallery-item">
+              <img src="bg.jpg" alt="Foto Galeri 3" loading="lazy">
+            </div>
+            <div class="gallery-item item-large">
+              <img src="bg2.jpg" alt="Foto Galeri 4" loading="lazy">
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 5: DIGITAL ENVELOPE (AMPLOP DIGITAL) -->
+        <section id="secGift" class="invitation-section sec-gift">
+          <div class="section-card gift-card">
+            <div class="card-icon"><i class="fas fa-gift"></i></div>
+            <h2 class="section-title brittany-font">Amplop Digital</h2>
+            <p class="gift-desc">Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberi hadiah tanda kasih, Anda dapat menyalurkannya melalui:</p>
+
+            <div class="bank-card">
+              <div class="bank-brand">BCA</div>
+              <div class="bank-account">
+                <span class="account-number" id="bcaNo">1234 5678 9012</span>
+                <span class="account-name">a.n. Satu Rahmat</span>
+              </div>
+              <button class="btn-copy" onclick="copyAccount('123456789012', 'BCA')">
+                <i class="fas fa-copy"></i> Salin Rekening
+              </button>
+            </div>
+
+            <div class="bank-card">
+              <div class="bank-brand">MANDIRI</div>
+              <div class="bank-account">
+                <span class="account-number" id="mandiriNo">9876 5432 1098</span>
+                <span class="account-name">a.n. Clarissa Amalia</span>
+              </div>
+              <button class="btn-copy" onclick="copyAccount('987654321098', 'Mandiri')">
+                <i class="fas fa-copy"></i> Salin Rekening
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 6: RSVP & GUESTBOOK / UCAPAN -->
+        <section id="secWishes" class="invitation-section sec-wishes">
+          
+          <!-- RSVP Form Card -->
+          <div class="section-card rsvp-card">
+            <h2 class="section-title brittany-font">Konfirmasi Kehadiran</h2>
+            <p class="sub-header-text">Mohon konfirmasi kehadiran Anda untuk membantu kami menyiapkan konsumsi &amp; tempat.</p>
+            
+            <form id="rsvpForm" class="form-wrapper">
+              <div class="form-group">
+                <label for="rsvpName">Nama Lengkap</label>
+                <input type="text" id="rsvpName" placeholder="Masukkan nama Anda" required>
+              </div>
+              <div class="form-group">
+                <label for="rsvpStatus">Status Kehadiran</label>
+                <select id="rsvpStatus" required>
+                  <option value="" disabled selected>-- Pilih Status --</option>
+                  <option value="Hadir">Hadir</option>
+                  <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+                  <option value="Ragu-ragu">Masih Ragu-ragu</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="rsvpCount">Jumlah Tamu</label>
+                <select id="rsvpCount">
+                  <option value="1 Orang">1 Orang</option>
+                  <option value="2 Orang">2 Orang</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Kirim Konfirmasi</button>
+            </form>
+          </div>
+
+          <!-- Guestbook Wishes Card -->
+          <div class="section-card wishes-card">
+            <h2 class="section-title brittany-font">Ucapan &amp; Doa Restu</h2>
+            <form id="wishForm" class="form-wrapper">
+              <div class="form-group">
+                <input type="text" id="wishName" placeholder="Nama Anda" required>
+              </div>
+              <div class="form-group">
+                <textarea id="wishMessage" rows="3" placeholder="Tuliskan ucapan dan doa terbaik untuk kedua mempelai..." required></textarea>
+              </div>
+              <button type="submit" class="btn-submit"><i class="fas fa-heart"></i> Kirim Ucapan</button>
+            </form>
+
+            <div class="wishes-list" id="wishesList">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="invitation-footer">
+          <p class="footer-thankyou brittany-font">Terima Kasih</p>
+          <p class="footer-names">Risna &amp; Cesar</p>
+          <p class="footer-copyright">&copy; 2026 Undangan Digital Risnasar. All Rights Reserved.</p>
+        </footer>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-notification">
+    <i class="fas fa-check-circle"></i> <span id="toastText">Berhasil disalin!</span>
+  </div>
+
+  <!-- JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
