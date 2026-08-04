@@ -1109,8 +1109,15 @@ html, body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  animation: floatContinuous 4.5s ease-in-out infinite;
-  will-change: transform;
+  opacity: 0;
+  transform: scale(0.45);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+}
+
+/* Animasi Muncul Super Slow & Graceful saat Slide Terbuka / In View */
+.sec-arrum.in-view .arrum-frame-card {
+  animation: frameZoomInPop 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards, floatContinuous 4.5s ease-in-out 2.2s infinite;
 }
 
 .arrum-bismillah {
@@ -1121,25 +1128,47 @@ html, body {
   margin-bottom: 10px;
   direction: rtl;
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
-  animation: fadeInDown 1.2s ease-out;
+  opacity: 0;
+  transform: scale(0.6);
+  filter: blur(2px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-arrum.in-view .arrum-bismillah {
+  animation: childZoomInSmooth 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
 }
 
 .arrum-heart-icon {
   font-size: 1.5rem;
   color: var(--color-strawberry);
   margin-bottom: 12px;
-  animation: heartbeat 1.5s infinite;
+  opacity: 0;
+  transform: scale(0.6);
+  filter: blur(2px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-arrum.in-view .arrum-heart-icon {
+  animation: childZoomInSmooth 1.6s cubic-bezier(0.16, 1, 0.3, 1) 1.0s forwards, heartbeat 1.5s infinite 2.6s;
 }
 
 .arrum-quote-text {
   font-family: var(--font-caveat);
-  font-size: clamp(1.25rem, 5.5vw, 1.5rem);
+  font-size: clamp(1.3rem, 5.8vw, 1.6rem);
   font-weight: 700;
   color: var(--color-matcha-dark);
   line-height: 1.5;
   margin-bottom: 18px;
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
-  animation: fadeInUp 1.4s ease-out;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0.6);
+  filter: blur(2px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-arrum.in-view .arrum-quote-text {
+  animation: childZoomInSmooth 1.8s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards, textBreathing 3.6s ease-in-out 3.2s infinite;
 }
 
 .arrum-quote-src {
@@ -1147,33 +1176,55 @@ html, body {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-strawberry-dark);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   border: 1.5px solid var(--color-strawberry);
   padding: 7px 22px;
   border-radius: var(--radius-full);
-  animation: pulseBadge 2.5s ease-in-out infinite;
   display: inline-block;
+  opacity: 0;
+  transform: scale(0.6);
+  filter: blur(2px);
+  will-change: transform, opacity, filter;
 }
 
-@keyframes fadeInDown {
-  from {
+.sec-arrum.in-view .arrum-quote-src {
+  animation: childZoomInSmooth 1.6s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards, pulseBadge 2.5s ease-in-out 3.4s infinite;
+}
+
+/* Keyframe Animasi Muncul Bingkai dari Kecil ke Besar (Ultra Slow & Smooth Expansion) */
+@keyframes frameZoomInPop {
+  0% {
     opacity: 0;
-    transform: translateY(-15px);
+    transform: scale(0.45);
+    filter: blur(5px);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    filter: blur(0px);
+    transform: scale(1);
   }
 }
 
-@keyframes fadeInUp {
-  from {
+/* Keyframe Animasi Teks & Icon dari Kecil ke Besar (Soft Gentle Scale In) */
+@keyframes childZoomInSmooth {
+  0% {
     opacity: 0;
-    transform: translateY(15px);
+    transform: scale(0.6);
+    filter: blur(2px);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes textBreathing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
   }
 }
 
@@ -1188,57 +1239,290 @@ html, body {
   }
 }
 
-/* SECTION 3: COUPLE PROFILES */
-
-.profile-card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  padding: 15px 0 !important;
-  text-align: center;
-  margin-bottom: 15px !important;
+/* SECTION 3: COUPLE PROFILES (STAGGERED ARCH LAYOUT MATCHING CANVA SAMPLE) */
+.sec-couple {
+  padding: 25px 16px !important;
 }
 
-/* Pink Sticker Cutout Outline Effect for Photos */
-.profile-avatar-frame {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 15px auto;
-  border-radius: 50%;
-  padding: 4px;
-  background: #ffffff;
-  border: 3.5px solid var(--color-strawberry);
-  outline: 3.5px solid #ffffff;
-  box-shadow: 0 10px 25px rgba(216, 133, 138, 0.35);
+/* ==========================================================================
+   SUPER SLOW & SMOOTH STAGGERED ANIMATIONS (COUPLE SLIDE)
+   ========================================================================== */
+.sec-couple .section-header {
+  opacity: 0;
+  transform: translateY(-15px);
+  filter: blur(3px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-couple .bride-row .couple-arch-frame {
+  opacity: 0;
+  transform: scale(0.45);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-couple .bride-row .couple-info-side {
+  opacity: 0;
+  transform: translateX(18px);
+  filter: blur(3px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-couple .couple-center-amp {
+  opacity: 0;
+  transform: scale(0.4);
+  will-change: transform, opacity;
+}
+
+.sec-couple .groom-row .couple-arch-frame {
+  opacity: 0;
+  transform: scale(0.45);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-couple .groom-row .couple-info-side {
+  opacity: 0;
+  transform: translateX(-18px);
+  filter: blur(3px);
+  will-change: transform, opacity, filter;
+}
+
+/* Triggered when slide is scrolled into view (.in-view) */
+/* 1. Judul Slide */
+.sec-couple.in-view .section-header {
+  animation: coupleFadeDown 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+/* 2. Foto Mempelai Wanita */
+.sec-couple.in-view .bride-row .couple-arch-frame {
+  animation: couplePhotoPop 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+}
+
+/* 3. Nama Mempelai Wanita */
+.sec-couple.in-view .bride-row .couple-info-side {
+  animation: coupleSlideInRight 1.5s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
+}
+
+/* Ampersand (&) Divider */
+.sec-couple.in-view .couple-center-amp {
+  animation: coupleAmpPop 1.4s cubic-bezier(0.16, 1, 0.3, 1) 2.1s forwards, heartbeat 1.8s infinite 3.5s;
+}
+
+/* 4. Foto Mempelai Pria */
+.sec-couple.in-view .groom-row .couple-arch-frame {
+  animation: couplePhotoPop 1.8s cubic-bezier(0.16, 1, 0.3, 1) 2.6s forwards;
+}
+
+/* 5. Nama Mempelai Pria */
+.sec-couple.in-view .groom-row .couple-info-side {
+  animation: coupleSlideInLeft 1.5s cubic-bezier(0.16, 1, 0.3, 1) 3.3s forwards;
+}
+
+/* Keyframes for Gentle Smooth Entrance */
+@keyframes coupleFadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes couplePhotoPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.45);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes coupleSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(18px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes coupleSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-18px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes coupleAmpPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.couple-staggered-wrapper {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.couple-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+}
+
+.bride-row {
+  flex-direction: row;
+}
+
+.groom-row {
+  flex-direction: row;
+}
+
+/* Arch Stadium Frame matching sample image */
+.couple-arch-frame {
+  width: 130px;
+  min-width: 130px;
+  height: 180px;
+  border-radius: 75px;
+  padding: 3.5px;
+  background: linear-gradient(135deg, var(--color-strawberry) 0%, var(--color-matcha) 100%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 10px 25px rgba(107, 127, 98, 0.25), 0 4px 15px rgba(216, 133, 138, 0.2);
+  position: relative;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
-.profile-avatar-frame:hover {
-  transform: scale(1.05) rotate(-2deg);
+.couple-arch-frame:hover {
+  transform: scale(1.05) rotate(1deg);
 }
 
-.profile-img {
+.arch-frame-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 71px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.couple-arch-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  display: block;
 }
 
-.person-name {
+.couple-info-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-right-side {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.text-left-side {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.couple-person-name {
   font-family: var(--font-caveat);
-  font-size: 2.3rem;
+  font-size: clamp(1.45rem, 5.4vw, 1.95rem);
   font-weight: 700;
-  color: var(--color-matcha);
-  margin-bottom: 4px;
-  line-height: 1.2;
+  color: var(--color-matcha-dark);
+  line-height: 1.25;
+  margin-bottom: 6px;
+  /* Shadow lucu & jelas: Outlining putih bersih + soft glowing pastel strawberry-matcha drop shadow */
+  text-shadow: 
+    2px 2px 0px #ffffff,
+    -2px -2px 0px #ffffff,
+    2px -2px 0px #ffffff,
+    -2px 2px 0px #ffffff,
+    0px 2px 6px #ffffff,
+    3px 4px 10px rgba(216, 133, 138, 0.45),
+    0px 3px 6px rgba(77, 94, 70, 0.25);
 }
 
-.parents-info {
+.couple-parents-text {
   font-family: var(--font-fredoka);
-  font-size: 0.82rem;
-  color: #555555;
-  margin-bottom: 12px;
+  font-size: clamp(0.75rem, 3.2vw, 0.85rem);
+  font-weight: 600;
+  color: #384235;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  /* Shadow lucu & jelas: Outlining putih halus + bayangan pastel matcha */
+  text-shadow: 
+    1.5px 1.5px 0px #ffffff,
+    -1.5px -1.5px 0px #ffffff,
+    1.5px -1.5px 0px #ffffff,
+    -1.5px 1.5px 0px #ffffff,
+    0px 1px 4px #ffffff,
+    2px 3px 8px rgba(107, 127, 98, 0.35);
+}
+
+.ig-link-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-fredoka);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-strawberry-dark);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(216, 133, 138, 0.35);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px rgba(216, 133, 138, 0.15);
+  transition: all 0.2s ease;
+}
+
+.ig-link-mini:hover {
+  background: var(--color-strawberry);
+  color: #ffffff;
+}
+
+.couple-center-amp {
+  font-family: var(--font-caveat);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-strawberry);
+  margin: -6px 0;
+  text-shadow: 0 2px 8px rgba(216, 133, 138, 0.3);
+  animation: heartbeat 1.8s infinite;
 }
 
 .ig-link {

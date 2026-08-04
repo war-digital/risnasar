@@ -136,6 +136,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
+  // SLIDE OBSERVER FOR AR-RUM & SECTION ANIMATIONS
+  // ==========================================
+  const appContainerEl = document.getElementById('appContainer');
+  const invitationSections = document.querySelectorAll('.invitation-section');
+
+  if ('IntersectionObserver' in window && invitationSections.length) {
+    const slideObserverOptions = {
+      root: appContainerEl || null,
+      threshold: 0.25
+    };
+
+    const slideObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, slideObserverOptions);
+
+    invitationSections.forEach(section => {
+      slideObserver.observe(section);
+    });
+  }
+
+  // ==========================================
   // AUDIO MUSIC CONTROLLER
   // ==========================================
   let isPlaying = false;
