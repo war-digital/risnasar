@@ -2138,3 +2138,223 @@ html, body {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
+
+/* ==========================================================================
+   SECTION 7: THANK YOU & CLOSING SLIDE (AESTHETIC bg6.jpg FRAME)
+   ========================================================================== */
+.sec-thankyou {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 30px 18px 25px 18px !important;
+}
+
+.thankyou-wrapper {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.glass-thankyou-card {
+  width: 100%;
+  background: rgba(18, 22, 18, 0.68);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 28px;
+  padding: 24px 20px 22px 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(216, 133, 138, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Aesthetic Arch Photo Frame */
+.thankyou-photo-frame {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  border-radius: 120px 120px 20px 20px;
+  padding: 5px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(216, 133, 138, 0.8), rgba(107, 127, 98, 0.8));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(255, 255, 255, 0.25);
+  margin-bottom: 18px;
+  overflow: visible;
+}
+
+.thankyou-photo-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 115px 115px 16px 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.thankyou-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.96) contrast(1.04);
+  transition: transform 0.8s ease;
+}
+
+.thankyou-photo-frame:hover .thankyou-img {
+  transform: scale(1.05);
+}
+
+.photo-overlay-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.35) 100%);
+  pointer-events: none;
+}
+
+.thankyou-photo-badge {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  background: var(--color-strawberry);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(216, 133, 138, 0.5);
+  z-index: 3;
+}
+
+.thankyou-photo-badge i {
+  animation: heartbeat 1.5s infinite;
+}
+
+/* Thank You Text & Typography */
+.thankyou-title {
+  font-family: var(--font-caveat);
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 230, 160, 0.6) !important;
+  line-height: 1.1;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.thankyou-message {
+  font-family: var(--font-fredoka);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.5;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 14px;
+  padding: 0 8px;
+}
+
+.thankyou-divider {
+  color: var(--color-strawberry-light);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  opacity: 0.85;
+}
+
+.thankyou-tagline {
+  font-family: var(--font-fredoka);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--color-strawberry-light);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.thankyou-couple-names {
+  font-family: var(--font-caveat);
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 18px rgba(216, 133, 138, 0.5) !important;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.thankyou-family-text {
+  font-family: var(--font-fredoka);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.thankyou-footer {
+  margin-top: 15px;
+  padding: 10px 0 0 0;
+  border-top: none;
+}
+
+.thankyou-footer .footer-copyright {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.68rem;
+  margin-top: 0;
+}
+
+/* Scroll Animations for sec-thankyou */
+.sec-thankyou .thankyou-card {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.8s ease;
+}
+
+.sec-thankyou .thankyou-photo-frame {
+  opacity: 0;
+  transform: scale(0.75) translateY(15px);
+  will-change: transform, opacity;
+}
+
+.sec-thankyou .thankyou-title,
+.sec-thankyou .thankyou-message,
+.sec-thankyou .thankyou-tagline,
+.sec-thankyou .thankyou-couple-names {
+  opacity: 0;
+  transform: translateY(12px);
+  will-change: transform, opacity;
+}
+
+.sec-thankyou.in-view .thankyou-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.sec-thankyou.in-view .thankyou-photo-frame {
+  animation: eventCardPop 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+.sec-thankyou.in-view .thankyou-title {
+  animation: eventFadeDown 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.sec-thankyou.in-view .thankyou-message {
+  animation: eventFadeDown 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+
+.sec-thankyou.in-view .thankyou-tagline,
+.sec-thankyou.in-view .thankyou-couple-names {
+  animation: eventPopSlow 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+}

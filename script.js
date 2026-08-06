@@ -1,5 +1,5 @@
 /* ==========================================================================
-   UNDANGAN DIGITAL S & C - INTERACTIVE LOGIC & SWIPE CONTROLLER
+   UNDANGAN DIGITAL RISNA & CESAR - INTERACTIVE LOGIC & SWIPE CONTROLLER
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
