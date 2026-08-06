@@ -12,7 +12,7 @@
   --font-shortstack: 'Short Stack', 'Fredoka', cursive, sans-serif;
   --font-quicksand: 'Quicksand', 'Montserrat', sans-serif;
   
-  --font-brittany: var(--font-caveat);
+  --font-brittany: 'Brittany Signature', 'Brittany', cursive;
   --font-serif: var(--font-fredoka);
   --font-sans: var(--font-fredoka);
   
@@ -271,7 +271,7 @@ html, body {
   pointer-events: none;
 }
 
-/* Overlapping R & C Initials Style (SOLID BLACK NO SHADOW) */
+/* Overlapping R & C Initials Style (BRITTANY SIGNATURE FONT) */
 .overlapping-monogram {
   position: relative;
   width: 120px;
@@ -283,10 +283,10 @@ html, body {
 
 .initial-s {
   position: absolute;
-  top: 8px;
-  left: 12px;
-  font-family: var(--font-brittany);
-  font-size: 4.2rem;
+  top: 4px;
+  left: 10px;
+  font-family: 'Brittany Signature', 'Brittany', cursive !important;
+  font-size: 4.8rem !important;
   color: #000000;
   text-shadow: none !important;
   z-index: 2;
@@ -297,7 +297,7 @@ html, body {
   position: absolute;
   top: 45px;
   left: 48px;
-  font-family: var(--font-serif);
+  font-family: 'Brittany Signature', 'Brittany', var(--font-serif);
   font-size: 1.8rem;
   font-style: italic;
   color: #000000;
@@ -308,10 +308,10 @@ html, body {
 
 .initial-c {
   position: absolute;
-  bottom: 5px;
-  right: 12px;
-  font-family: var(--font-brittany);
-  font-size: 4.2rem;
+  bottom: 2px;
+  right: 10px;
+  font-family: 'Brittany Signature', 'Brittany', cursive !important;
+  font-size: 4.8rem !important;
   color: #000000;
   text-shadow: none !important;
   z-index: 3;
