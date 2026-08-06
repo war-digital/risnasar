@@ -610,7 +610,7 @@ html, body {
   max-width: 100%;
 }
 
-/* Bottom Section: Small guest name without protective box */
+/* Bottom Section: Aesthetic Protective Box for Guest Name */
 .cover2-bottom-wrapper {
   width: 100%;
   max-width: 320px;
@@ -620,28 +620,47 @@ html, body {
   margin-bottom: 15px;
 }
 
+.cover2-guest-box {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 12px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12), 0 0 15px rgba(107, 127, 98, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cover2-guest-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16), 0 0 20px rgba(107, 127, 98, 0.2);
+}
+
 .cover2-guest-label-black {
   font-family: var(--font-fredoka);
   font-size: clamp(0.72rem, 3.2vw, 0.82rem);
   color: var(--color-matcha-dark);
   font-weight: 600;
-  margin-bottom: 2px;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
   white-space: nowrap;
 }
 
 .cover2-guest-name-black {
   font-family: var(--font-caveat);
-  font-size: clamp(1.4rem, 6vw, 1.9rem);
+  font-size: clamp(1.5rem, 6.5vw, 2.1rem);
   font-weight: 700;
-  color: var(--color-matcha);
-  margin-bottom: 18px;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  box-shadow: none !important;
+  color: var(--color-matcha-dark);
+  margin-bottom: 0;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
   white-space: nowrap;
+  word-break: break-word;
 }
 
 .btn-tap-open {
