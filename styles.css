@@ -1572,38 +1572,153 @@ html, body {
 .sub-header-text {
   font-family: var(--font-fredoka);
   font-size: 0.82rem;
-  color: #555555;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+  font-weight: 600;
   margin-bottom: 18px;
 }
 
+/* ==========================================================================
+   SMOOTH RESPONSIVE STAGGERED ANIMATIONS (EVENT SLIDE)
+   ========================================================================== */
+.sec-event .section-title {
+  opacity: 0;
+  transform: translateY(-12px);
+  filter: blur(2px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-event .sub-header-text {
+  opacity: 0;
+  transform: translateY(-8px);
+  filter: blur(2px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-event .event-card {
+  opacity: 0;
+  transform: scale(0.6) translateY(15px);
+  filter: blur(3px);
+  will-change: transform, opacity, filter;
+}
+
+.sec-event .btn-maps {
+  opacity: 0;
+  transform: scale(0.7) translateY(10px);
+  will-change: transform, opacity;
+}
+
+/* Triggered when slide is scrolled into view (.in-view) */
+/* 1. Header & Subheader */
+.sec-event.in-view .section-title {
+  animation: eventFadeDown 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.sec-event.in-view .sub-header-text {
+  animation: eventFadeDown 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+/* 2. Kartu Akad Nikah (Muncul Pertama - Delay 0.2s) */
+.sec-event.in-view .akad-card {
+  animation: eventCardPop 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+/* 3. Kartu Perjamuan (Muncul Kedua - Delay 0.45s) */
+.sec-event.in-view .perjamuan-card {
+  animation: eventCardPop 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+/* 4. Tombol Google Maps (Delay 0.7s) */
+.sec-event.in-view .btn-maps {
+  animation: eventPopSlow 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+}
+
+/* Keyframes Animasi Event Slide */
+@keyframes eventFadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes eventCardPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(15px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes eventPopSlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes eventSlideUpSlow {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
 .event-card {
-  background: transparent !important;
-  border: none !important;
-  border-radius: var(--radius-lg) !important;
-  padding: 15px 10px !important;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1.5px solid #ffffff !important;
+  outline: 1.5px solid rgba(216, 133, 138, 0.35) !important;
+  outline-offset: -1px;
+  border-radius: 24px !important;
+  padding: 20px 18px !important;
   text-align: center;
-  margin-bottom: 20px !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 8px 25px rgba(107, 127, 98, 0.18), 0 3px 10px rgba(216, 133, 138, 0.15) !important;
 }
 
 .highlight-card {
-  border: none !important;
-  box-shadow: none !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 8px 25px rgba(107, 127, 98, 0.2) !important;
 }
 
 .card-icon {
-  font-size: 2rem;
-  color: var(--color-strawberry);
-  margin-bottom: 8px;
+  font-size: 1.85rem;
+  color: var(--color-strawberry-dark);
+  margin-bottom: 6px;
 }
 
 .event-type {
   font-family: var(--font-caveat);
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 700;
-  color: var(--color-matcha);
-  margin-bottom: 12px;
+  color: var(--color-matcha-dark);
+  margin-bottom: 10px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .event-date {
@@ -1611,41 +1726,42 @@ html, body {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .day-name, .month-year {
   font-family: var(--font-fredoka);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.88rem;
+  font-weight: 700;
   color: var(--color-matcha-dark);
   text-transform: uppercase;
 }
 
 .day-num {
   font-family: var(--font-fredoka);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--color-strawberry);
-  border-left: 2px solid var(--color-matcha-light);
-  border-right: 2px solid var(--color-matcha-light);
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--color-strawberry-dark);
+  border-left: 2px solid rgba(216, 133, 138, 0.4);
+  border-right: 2px solid rgba(216, 133, 138, 0.4);
   padding: 0 14px;
 }
 
 .event-time {
   font-family: var(--font-fredoka);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-matcha);
-  margin-bottom: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-matcha-dark);
+  margin-bottom: 8px;
 }
 
 .event-location {
   font-family: var(--font-fredoka);
-  font-size: 0.82rem;
-  color: #555555;
-  line-height: 1.5;
-  margin-bottom: 15px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #2e382b;
+  line-height: 1.45;
+  margin-bottom: 12px;
 }
 
 .btn-maps {
@@ -1672,35 +1788,117 @@ html, body {
 }
 
 
-/* SECTION 4: GALLERY */
+/* SECTION 4: GALLERY & TALL SECTIONS SCROLL FIX */
+.sec-gallery,
+.sec-gift,
+.sec-wishes {
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  height: auto !important;
+  justify-content: flex-start !important;
+  padding-top: 35px !important;
+  padding-bottom: 80px !important;
+  scroll-snap-align: start !important;
+  scroll-snap-stop: normal !important;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+  width: 100%;
 }
 
 .gallery-item {
   border-radius: var(--radius-md);
   overflow: hidden;
-  height: 160px;
+  height: 155px;
   border: 3px solid #ffffff;
-  box-shadow: 0 6px 18px rgba(107, 127, 98, 0.15);
+  box-shadow: 0 6px 18px rgba(107, 127, 98, 0.18);
+  cursor: pointer;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sec-gallery.in-view .gallery-item {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .gallery-item.item-large {
   grid-column: span 2;
-  height: 200px;
+  height: 210px;
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  display: block;
+  transition: transform 0.5s ease, filter 0.3s ease;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+
+/* Lightbox Modal */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.image-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  max-width: 92%;
+  max-height: 85vh;
+  border-radius: 16px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  object-fit: contain;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.image-modal.show .modal-content {
+  transform: scale(1);
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+  color: var(--color-strawberry);
 }
 
 

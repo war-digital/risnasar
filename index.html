@@ -225,7 +225,7 @@
             </div>
 
             <!-- Akad Card -->
-            <div class="event-card clean-transparent-card">
+            <div class="event-card glass-event-card akad-card">
               <div class="card-icon"><i class="fas fa-ring"></i></div>
               <h3 class="event-type">Akad Nikah</h3>
               <div class="event-date">
@@ -233,21 +233,21 @@
                 <span class="day-num">22</span>
                 <span class="month-year">Agustus 2026</span>
               </div>
-              <p class="event-time"><i class="far fa-clock"></i> Pukul 08.00 WIB - Selesai</p>
-              <p class="event-location"><i class="fas fa-location-dot"></i> <strong>Grand Ballroom Hotel Risnasar</strong><br>Jl. Merdeka Utama No. 88, Jakarta Selatan</p>
+              <p class="event-time"><i class="far fa-clock"></i> Pukul 10.00 WITA</p>
+              <p class="event-location"><i class="fas fa-location-dot"></i> <strong>Tempat Kediaman Surahman dan Hadina</strong></p>
             </div>
 
-            <!-- Resepsi Card -->
-            <div class="event-card clean-transparent-card">
+            <!-- Perjamuan Card -->
+            <div class="event-card glass-event-card perjamuan-card">
               <div class="card-icon"><i class="fas fa-glass-cheers"></i></div>
-              <h3 class="event-type">Resepsi Pernikahan</h3>
+              <h3 class="event-type">Perjamuan</h3>
               <div class="event-date">
                 <span class="day-name">Sabtu</span>
                 <span class="day-num">22</span>
                 <span class="month-year">Agustus 2026</span>
               </div>
-              <p class="event-time"><i class="far fa-clock"></i> Pukul 11.00 - 15.00 WIB</p>
-              <p class="event-location"><i class="fas fa-location-dot"></i> <strong>Grand Ballroom Hotel Risnasar</strong><br>Jl. Merdeka Utama No. 88, Jakarta Selatan</p>
+              <p class="event-time"><i class="far fa-clock"></i> Pukul 19.30 WITA</p>
+              <p class="event-location"><i class="fas fa-location-dot"></i> <strong>Tempat Kediaman Surahman dan Hadina</strong></p>
               
               <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-maps">
                 <i class="fas fa-map-marked-alt"></i> Buka Petunjuk Lokasi (Google Maps)
@@ -257,7 +257,7 @@
         </section>
 
         <!-- SECTION 4: GALLERY -->
-        <section id="secGallery" class="invitation-section sec-gallery">
+        <section id="secGallery" class="invitation-section snap-slide sec-gallery">
           <div class="section-header">
             <h2 class="section-title brittany-font">Galeri Bahagia</h2>
             <p class="sub-header-text">Momen Indah Perjalanan Cinta Kami</p>
@@ -265,22 +265,40 @@
 
           <div class="gallery-grid">
             <div class="gallery-item item-large">
-              <img src="bg2.jpg" alt="Foto Galeri 1" loading="lazy">
+              <img src="bg3.jpg" alt="Foto Galeri 1" loading="lazy" class="gallery-img">
             </div>
             <div class="gallery-item">
-              <img src="bg1.jpg" alt="Foto Galeri 2" loading="lazy">
+              <img src="bg4.jpg" alt="Foto Galeri 2" loading="lazy" class="gallery-img">
             </div>
             <div class="gallery-item">
-              <img src="bg.jpg" alt="Foto Galeri 3" loading="lazy">
+              <img src="bg5.jpg" alt="Foto Galeri 3" loading="lazy" class="gallery-img">
             </div>
             <div class="gallery-item item-large">
-              <img src="bg2.jpg" alt="Foto Galeri 4" loading="lazy">
+              <img src="bg6.jpg" alt="Foto Galeri 4" loading="lazy" class="gallery-img">
+            </div>
+            <div class="gallery-item">
+              <img src="bg7.jpg" alt="Foto Galeri 5" loading="lazy" class="gallery-img">
+            </div>
+            <div class="gallery-item">
+              <img src="bg8.jpg" alt="Foto Galeri 6" loading="lazy" class="gallery-img">
+            </div>
+            <div class="gallery-item item-large">
+              <img src="bg9.jpg" alt="Foto Galeri 7" loading="lazy" class="gallery-img">
+            </div>
+            <div class="gallery-item">
+              <img src="bg10.jpg" alt="Foto Galeri 8" loading="lazy" class="gallery-img">
+            </div>
+            <div class="gallery-item">
+              <img src="bg11.jpg" alt="Foto Galeri 9" loading="lazy" class="gallery-img">
+            </div>
+            <div class="gallery-item item-large">
+              <img src="bg12.jpg" alt="Foto Galeri 10" loading="lazy" class="gallery-img">
             </div>
           </div>
         </section>
 
         <!-- SECTION 5: DIGITAL ENVELOPE (AMPLOP DIGITAL) -->
-        <section id="secGift" class="invitation-section sec-gift">
+        <section id="secGift" class="invitation-section snap-slide sec-gift">
           <div class="section-card gift-card">
             <div class="card-icon"><i class="fas fa-gift"></i></div>
             <h2 class="section-title brittany-font">Amplop Digital</h2>
@@ -311,7 +329,7 @@
         </section>
 
         <!-- SECTION 6: RSVP & GUESTBOOK / UCAPAN -->
-        <section id="secWishes" class="invitation-section sec-wishes">
+        <section id="secWishes" class="invitation-section snap-slide sec-wishes">
           
           <!-- RSVP Form Card -->
           <div class="section-card rsvp-card">
@@ -378,6 +396,12 @@
   <!-- Toast Notification -->
   <div id="toastNotification" class="toast-notification">
     <i class="fas fa-check-circle"></i> <span id="toastText">Berhasil disalin!</span>
+  </div>
+
+  <!-- Lightbox Image Modal -->
+  <div id="imageModal" class="image-modal hidden">
+    <span id="closeModal" class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Preview Foto Galeri">
   </div>
 
   <!-- JavaScript File -->

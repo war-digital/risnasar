@@ -298,6 +298,36 @@ document.addEventListener('DOMContentLoaded', () => {
       rsvpForm.reset();
     });
   }
+
+  // ==========================================
+  // GALLERY LIGHTBOX MODAL CONTROLLER
+  // ==========================================
+  const imageModal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+  const closeModal = document.getElementById('closeModal');
+  const galleryImgs = document.querySelectorAll('.gallery-img');
+
+  if (imageModal && modalImg) {
+    galleryImgs.forEach(img => {
+      img.addEventListener('click', () => {
+        imageModal.classList.remove('hidden');
+        setTimeout(() => imageModal.classList.add('show'), 10);
+        modalImg.src = img.src;
+      });
+    });
+
+    function closeGalleryModal() {
+      imageModal.classList.remove('show');
+      setTimeout(() => {
+        imageModal.classList.add('hidden');
+      }, 300);
+    }
+
+    if (closeModal) closeModal.addEventListener('click', closeGalleryModal);
+    imageModal.addEventListener('click', (e) => {
+      if (e.target === imageModal) closeGalleryModal();
+    });
+  }
 });
 
 
