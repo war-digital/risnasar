@@ -232,11 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const wishForm = document.getElementById('wishForm');
   const wishesList = document.getElementById('wishesList');
 
-  // Default Initial Wishes
-  const defaultWishes = [
-    { name: 'Budi & Keluarga', message: 'Selamat untuk Satu & Clarissa! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Aamiin!', date: '1 hari yang lalu' },
-    { name: 'Dr. Anisa', message: 'Happy wedding sahabatku Clarissa & Mas Rahmat. Langgeng sampai kakek nenek ya!', date: '3 jam yang lalu' }
-  ];
+  // Default Initial Wishes (Empty by default)
+  const defaultWishes = [];
 
   function loadWishes() {
     const stored = localStorage.getItem('wedding_wishes');
@@ -244,6 +241,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (wishesList) {
       wishesList.innerHTML = '';
+      if (!wishes || wishes.length === 0) {
+        wishesList.innerHTML = '<p class="empty-wishes-text" style="font-size: 0.82rem; color: #777777; text-align: center; padding: 15px 0; font-style: italic;">Belum ada ucapan & doa. Jadilah yang pertama memberikan doa restu!</p>';
+        return;
+      }
       wishes.forEach(w => {
         const item = document.createElement('div');
         item.className = 'wish-item';

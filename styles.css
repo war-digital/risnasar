@@ -883,12 +883,12 @@ html, body {
 
 .slide1-couple-title {
   font-family: var(--font-caveat);
-  font-size: clamp(2.1rem, 9vw, 3.4rem);
+  font-size: clamp(2.3rem, 9.5vw, 3.6rem);
   font-weight: 700;
-  color: var(--color-matcha);
+  color: var(--color-matcha) !important;
   text-align: center;
   line-height: 1.15;
-  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.8) !important;
   margin-top: 2px;
   margin-bottom: 0;
   white-space: nowrap;
@@ -1559,21 +1559,22 @@ html, body {
 }
 
 
-/* SECTION 3: EVENT DETAILS */
+/* SECTION 3: EVENT DETAILS & ALL SLIDE TITLES */
 .section-title {
   font-family: var(--font-caveat);
-  font-size: 2.8rem;
+  font-size: 3.1rem;
   font-weight: 700;
-  color: var(--color-matcha);
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 0 22px rgba(255, 230, 160, 0.65) !important;
   margin-bottom: 6px;
   line-height: 1.15;
 }
 
 .sub-header-text {
   font-family: var(--font-fredoka);
-  font-size: 0.82rem;
-  color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+  font-size: 0.85rem;
+  color: #ffffff !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.92) !important;
   font-weight: 600;
   margin-bottom: 18px;
 }
@@ -1688,37 +1689,37 @@ html, body {
 
 .event-card {
   width: 100%;
-  background: rgba(255, 255, 255, 0.88) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  border: 1.5px solid #ffffff !important;
-  outline: 1.5px solid rgba(216, 133, 138, 0.35) !important;
-  outline-offset: -1px;
-  border-radius: 24px !important;
-  padding: 20px 18px !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+  padding: 8px 0 !important;
   text-align: center;
-  margin-bottom: 16px !important;
-  box-shadow: 0 8px 25px rgba(107, 127, 98, 0.18), 0 3px 10px rgba(216, 133, 138, 0.15) !important;
+  margin-bottom: 22px !important;
+  box-shadow: none !important;
 }
 
 .highlight-card {
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 8px 25px rgba(107, 127, 98, 0.2) !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .card-icon {
   font-size: 1.85rem;
-  color: var(--color-strawberry-dark);
+  color: #ffffff;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.85));
   margin-bottom: 6px;
 }
 
 .event-type {
   font-family: var(--font-caveat);
-  font-size: 2.1rem;
+  font-size: 2.3rem;
   font-weight: 700;
-  color: var(--color-matcha-dark);
-  margin-bottom: 10px;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.88);
 }
 
 .event-date {
@@ -1726,40 +1727,44 @@ html, body {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .day-name, .month-year {
   font-family: var(--font-fredoka);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: var(--color-matcha-dark);
+  color: #ffffff;
   text-transform: uppercase;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.88);
 }
 
 .day-num {
   font-family: var(--font-fredoka);
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   font-weight: 800;
-  color: var(--color-strawberry-dark);
-  border-left: 2px solid rgba(216, 133, 138, 0.4);
-  border-right: 2px solid rgba(216, 133, 138, 0.4);
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  border-left: 2px solid rgba(255, 255, 255, 0.6);
+  border-right: 2px solid rgba(255, 255, 255, 0.6);
   padding: 0 14px;
 }
 
 .event-time {
   font-family: var(--font-fredoka);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--color-matcha-dark);
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.88);
   margin-bottom: 8px;
 }
 
 .event-location {
   font-family: var(--font-fredoka);
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  color: #2e382b;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.88);
   line-height: 1.45;
   margin-bottom: 12px;
 }
